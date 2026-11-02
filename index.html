@@ -13,333 +13,399 @@
 <meta property="og:description" content="Crea contenido con IA con poco tiempo. Guías gratis y Lista VIP.">
 <meta property="og:image" content="guias/plan.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap">
 <style>
-:root{--bg:#F4EFE6;--paper:#FFFBF4;--ink:#1E2A44;--terra:#D9643A;--terra2:#F2A27E;--sky:#BFD7EA;--blush:#F7D9CB;
+:root{--bg:#F4EFE6;--paper:#FFFDF9;--ink:#1E2A44;--terra:#D9643A;--sky:#BFD7EA;--blush:#F6E3D9;--soft:#EDE5D8;--muted:#1E2A44A6;--line:#1E2A4417;
 --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;--serif:"Fraunces",Georgia,serif;
---shadow:0 18px 40px -18px #1E2A4440,0 2px 6px #1E2A4410;--r:30px;color-scheme:light}
+--shadow:0 1px 2px #1E2A440D,0 12px 32px -18px #1E2A4433;--r:22px;color-scheme:light}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);font-size:17px;line-height:1.5;overflow-x:hidden;
-padding:0 max(16px,env(safe-area-inset-right)) calc(110px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
-img{max-width:100%}
-.t{color:var(--terra)}
-.it{font-family:var(--serif);font-style:italic;font-weight:700;text-transform:none;letter-spacing:-.01em}
-h1,h2{margin:0;font-weight:800;letter-spacing:-.03em;line-height:.95;text-wrap:balance}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+padding:0 0 calc(100px + env(safe-area-inset-bottom))}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
 p{margin:0}
-svg.st{display:block;overflow:visible}
-
-/* fondo fluido */
-.blobs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.blobs i{position:absolute;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;filter:blur(2px);opacity:.85;animation:morph 18s ease-in-out infinite alternate}
-.blobs .b1{width:420px;height:420px;background:var(--sky);top:-140px;right:-160px}
-.blobs .b2{width:360px;height:360px;background:var(--blush);top:42%;left:-200px;animation-duration:22s}
-.blobs .b3{width:300px;height:300px;background:#BFD7EA99;bottom:-120px;right:-90px;animation-duration:26s}
-@keyframes morph{0%{border-radius:42% 58% 63% 37%/45% 41% 59% 55%;transform:translate(0,0) rotate(0)}
-50%{border-radius:61% 39% 44% 56%/58% 62% 38% 42%;transform:translate(24px,30px) rotate(25deg)}
-100%{border-radius:38% 62% 51% 49%/39% 55% 45% 61%;transform:translate(-18px,12px) rotate(-12deg)}}
-
-.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.acc{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--terra);letter-spacing:-.01em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left))}
 .view[hidden]{display:none}
-.view{animation:viewIn .5s cubic-bezier(.2,.8,.2,1)}
-@keyframes viewIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.view{animation:viewIn .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes viewIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-/* animaciones de stickers */
-.spin{animation:spin 14s linear infinite}
-.float{animation:float 4.5s ease-in-out infinite}
-.wob{animation:wob 3.2s ease-in-out infinite}
-.twinkle{animation:twinkle 2.4s ease-in-out infinite}
+/* barra superior */
+.nav{position:sticky;top:0;z-index:6;padding:12px 0;background:#F4EFE6E6;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .m{width:38px;height:38px;flex:none}
+.logo b{font-weight:700;font-size:1.05rem;line-height:1;letter-spacing:-.02em}
+.logo small{display:block;font-size:.72rem;color:var(--muted);font-weight:500;margin-top:3px}
+.cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-weight:600;font-size:.88rem;padding:10px 16px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.cta:hover{background:#2B3A5C}.cta:active{transform:scale(.97)}
+.cta .ic{width:16px;height:16px}
+
+/* hero */
+.hero{display:grid;gap:30px;padding:26px 0 34px;align-items:center}
+.kick{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:var(--blush);color:var(--terra);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.hero .copy{display:flex;flex-direction:column;gap:18px}
+.hero h1{font-size:clamp(2.6rem,11vw,4.2rem)}
+.hero .lede{font-size:1.05rem;color:var(--muted);max-width:34ch}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font:inherit;font-weight:600;font-size:.95rem;border-radius:999px;padding:8px 8px 8px 20px;text-decoration:none;cursor:pointer;border:1.5px solid var(--ink);transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn .c{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .25s}
+.btn:hover .c{transform:translateX(3px)}
+.btn .c .ic{width:16px;height:16px}
+.btn.solid{background:var(--terra);border-color:var(--terra);color:#fff}
+.btn.solid .c{background:#fff;color:var(--terra)}
+.btn.line{background:transparent;color:var(--ink);padding:13px 20px}
+.trust{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--muted);line-height:1.35}
+.trust .stk{display:flex}
+.trust .stk img{width:34px;height:46px;object-fit:cover;border-radius:7px;border:2px solid var(--bg);margin-left:-10px;transform:rotate(-4deg)}
+.trust .stk img:first-child{margin-left:0}.trust .stk img:nth-child(2){transform:rotate(3deg)}
+.trust b{color:var(--ink);font-weight:700}
+
+.visual{position:relative;width:min(100%,430px);margin:0 auto;aspect-ratio:760/846;isolation:isolate}
+.visual .arch{position:absolute;z-index:-1;left:12%;right:8%;bottom:0;top:12%;background:var(--terra);border-radius:999px 999px 26px 26px}
+.visual .ring{position:absolute;z-index:-2;left:6%;right:2%;bottom:5%;top:6%;border:1.5px solid #1E2A4426;border-radius:999px 999px 30px 30px}
+.visual img.me{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom}
+.label{position:absolute;display:inline-flex;align-items:center;gap:8px;background:var(--paper);color:var(--ink);font-weight:600;font-size:.82rem;padding:9px 14px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap;animation:bob 5s ease-in-out infinite}
+.label .dot{width:8px;height:8px;border-radius:50%;background:var(--terra)}
+.label.dark{background:var(--ink);color:var(--paper)}.label.dark .dot{background:var(--sky)}
+.label.l1{left:-4px;top:40%}.label.l2{right:-4px;bottom:18%;animation-delay:1.4s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.stamp{position:absolute;right:2%;top:8%;width:92px;height:92px}
+.stamp svg{width:100%;height:100%;animation:spin 16s linear infinite}
+.stamp .core{position:absolute;inset:24px;border-radius:50%;background:var(--terra);color:#fff;display:flex;align-items:center;justify-content:center}
+.stamp .core .ic{width:20px;height:20px;stroke-width:2.2}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes float{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--rot,0deg) + 6deg))}}
-@keyframes wob{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
-@keyframes twinkle{0%,100%{transform:scale(.7) rotate(0);opacity:.7}50%{transform:scale(1.1) rotate(45deg);opacity:1}}
 
-/* cabecera */
-.top{display:flex;align-items:center;justify-content:space-between;padding-top:22px}
-.brand{font-weight:800;font-size:1.05rem;letter-spacing:-.02em;line-height:1}
-.brand span{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:.85rem;color:var(--terra);letter-spacing:0}
-.igbtn{background:var(--terra);color:var(--paper);font-weight:800;font-size:.85rem;border-radius:999px;padding:10px 16px;text-decoration:none;display:inline-flex;gap:6px;align-items:center;box-shadow:0 10px 22px -10px #D9643A}
+/* franja que se desplaza */
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;padding:14px 0;transform:rotate(-1.2deg);margin:4px -10px 0}
+.marquee .tr{display:flex;width:max-content;animation:mq 28s linear infinite}
+.marquee span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;font-weight:600;font-size:1.05rem;white-space:nowrap}
+.marquee span i{font-style:normal;color:var(--terra);font-size:.9rem}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-.hero{position:relative;background:var(--paper);border-radius:40px;padding:34px 24px 30px;box-shadow:var(--shadow);overflow:hidden;isolation:isolate}
-.hero .shape{position:absolute;z-index:-1;border-radius:50% 50% 46% 54%/60% 56% 44% 40%;background:var(--blush);width:280px;height:280px;right:-90px;bottom:-110px}
-.hero .shape.s2{background:var(--sky);width:170px;height:170px;left:-70px;top:-60px;border-radius:50%}
-.kick{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:1.1rem;font-weight:500}
-.hero h1{font-size:clamp(3rem,15vw,5.4rem);margin-top:8px;text-transform:uppercase;position:relative;z-index:1}
-.hero h1 .it{display:inline-block;text-transform:none;font-size:1.05em;color:var(--terra);transform:rotate(-4deg);position:relative}
-.squig{position:absolute;left:0;right:0;bottom:-14px;height:18px}
-.squig path{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.4s .5s cubic-bezier(.6,0,.2,1) forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.intro{font-size:1.05rem;line-height:1.45;max-width:30ch;margin-top:24px;position:relative;z-index:1}
-.hero .stamp{position:absolute;right:14px;top:16px;width:108px;height:108px;z-index:2}
-.hero .stamp .core{position:absolute;inset:26px;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center}
-.hero .flower{position:absolute;right:18px;bottom:16px;width:54px;--rot:12deg}
-.hero .spark1{position:absolute;right:30%;top:20px;width:26px}
-.hero .spark2{position:absolute;right:26%;bottom:22px;width:18px;animation-delay:.8s}
-.hero .burst{position:absolute;right:20px;bottom:18px;width:76px;opacity:.9}
+/* ventajas */
+.feats{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;margin-top:34px}
+.feat{display:flex;gap:12px;padding:18px 16px;align-items:flex-start}
+.feat:nth-child(odd){border-right:1px solid var(--line)}
+.feat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.feat .sq{width:40px;height:40px;border-radius:12px;background:var(--blush);color:var(--terra);display:flex;align-items:center;justify-content:center;flex:none}
+.feat:nth-child(2) .sq,.feat:nth-child(3) .sq{background:#E4EEF6;color:var(--ink)}
+.feat b{display:block;font-weight:700;font-size:.95rem;line-height:1.2}
+.feat small{display:block;color:var(--muted);font-size:.8rem;line-height:1.35;margin-top:3px}
+@media (min-width:760px){.feats{grid-template-columns:repeat(4,1fr)}.feat{border-bottom:0!important;border-right:1px solid var(--line)}.feat:last-child{border-right:0}}
 
-/* chips */
-.chipsbox{display:flex;flex-direction:column;gap:10px}
-.lbl{font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.search{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin:0 -16px;padding-left:16px;padding-right:16px;scrollbar-width:none;scroll-snap-type:x mandatory}
+/* secciones */
+.sec{padding-top:46px;display:flex;flex-direction:column;gap:18px}
+.eyebrow{display:flex;align-items:center;gap:8px;color:var(--terra);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow::before{content:"";width:18px;height:2px;background:var(--terra);border-radius:2px}
+.sec h2{font-size:clamp(1.9rem,8vw,2.6rem)}
+.sec .sub{color:var(--muted);max-width:44ch}
+
+.search{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -18px;padding:2px 18px 6px;scroll-snap-type:x proximity}
 .search::-webkit-scrollbar{display:none}
-.chip{flex:none;scroll-snap-align:start;font:inherit;font-weight:700;font-size:.82rem;letter-spacing:.04em;background:var(--paper);color:var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer;text-decoration:none;box-shadow:0 6px 16px -10px #1E2A4466;transition:transform .25s,background .25s,color .25s}
-.chip:nth-child(3n+1){background:#fff}.chip:nth-child(3n+2){background:var(--blush)}.chip:nth-child(3n){background:var(--sky)}
-.chip:hover,.chip:active{transform:translateY(-3px) rotate(-2deg);background:var(--terra);color:var(--paper)}
-.chip:focus-visible,.btn:focus-visible,.tab:focus-visible,.big:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.chip{flex:none;scroll-snap-align:start;font-weight:600;font-size:.82rem;letter-spacing:.03em;color:var(--ink);text-decoration:none;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 15px;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
-/* VIP banner */
-.vipbox{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;gap:8px;background:var(--ink);color:var(--paper);border-radius:var(--r);padding:26px 22px;text-decoration:none;cursor:pointer;box-shadow:0 22px 40px -20px #1E2A44;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
-.vipbox:hover{transform:translateY(-4px) rotate(-.5deg)}
-.vipbox::before{content:"";position:absolute;z-index:-1;width:240px;height:240px;right:-80px;top:-90px;background:var(--terra);border-radius:56% 44% 61% 39%/47% 58% 42% 53%;animation:morph 12s ease-in-out infinite alternate}
-.vipbox .vk{font-weight:800;font-size:.72rem;letter-spacing:.16em;color:var(--sky)}
-.vipbox b{font-weight:800;font-size:1.7rem;line-height:1}
-.vipbox b .it{color:var(--sky)}
-.vipbox span{max-width:30ch}
-.vipbox .vb{align-self:flex-start;background:var(--paper);color:var(--ink);font-weight:800;border-radius:999px;padding:10px 18px;margin-top:6px}
-.vipbox .vst{position:absolute;right:18px;bottom:16px;width:58px}
-
-/* tarjetas */
-.list{display:flex;flex-direction:column;gap:22px}
-.card{position:relative;background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;display:grid;grid-template-columns:128px 1fr;gap:18px;align-items:start;scroll-margin-top:16px;
-opacity:0;transform:translateY(30px) scale(.98);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+/* tarjetas de guías */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:20px}}
+.card{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:80px;
+opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
 .card.in{opacity:1;transform:none}
-.card:hover{box-shadow:0 26px 50px -22px #1E2A4466}
-.card.hl{box-shadow:0 0 0 3px var(--terra),var(--shadow)}
-.card>div{min-width:0;display:flex;flex-direction:column;gap:9px}
-.covwrap{position:relative;transform:rotate(-3deg);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-.card:nth-child(even) .covwrap{transform:rotate(3deg)}
-.card:hover .covwrap{transform:rotate(0) scale(1.03)}
-.cover{width:100%;aspect-ratio:642/909;border-radius:16px;object-fit:cover;display:block;background:var(--bg);border:5px solid #fff;box-shadow:0 12px 24px -12px #1E2A4488}
-.covwrap .mini{position:absolute;width:34px;height:34px;right:-12px;top:-12px}
-.tag{align-self:flex-start;background:var(--sky);border-radius:999px;padding:4px 12px;font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-.card:nth-child(3n+2) .tag{background:var(--blush)}
-.card:nth-child(3n) .tag{background:#E3EBDD}
-.card h2{font-size:1.55rem}
-.card h2 .t{font-family:var(--serif);font-style:italic;font-weight:700;letter-spacing:-.01em}
-.card p{font-size:.95rem}
-.meta{font-size:.82rem;opacity:.65}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-.btn{font:inherit;font-weight:700;font-size:.92rem;border-radius:999px;padding:10px 18px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;transition:transform .2s}
-.btn:active{transform:scale(.96)}
-.btn.dl{background:var(--terra);color:var(--paper);box-shadow:0 10px 20px -10px #D9643A}
-.btn.read{background:var(--bg);color:var(--ink)}
-.btn .ar{display:inline-flex;width:22px;height:22px;border-radius:50%;background:#ffffff33;align-items:center;justify-content:center}
-.soon{background:transparent;box-shadow:none;border:2px dashed #1E2A4433}
-.ph{aspect-ratio:642/909;border-radius:16px;background:var(--blush);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-weight:700;color:var(--terra);text-align:center;padding:8px;position:relative}
-@media (max-width:520px){.card{grid-template-columns:100px 1fr;gap:14px}.card h2{font-size:1.28rem}.btn{padding:9px 14px;font-size:.88rem}}
+.card:hover{box-shadow:0 1px 2px #1E2A440D,0 22px 40px -20px #1E2A4455}
+.card.hl{box-shadow:0 0 0 2px var(--terra),var(--shadow)}
+.thumb{position:relative;background:var(--soft);padding:34px 18px 0;overflow:hidden;aspect-ratio:1/1.02}
+.card:nth-child(3n+2) .thumb{background:#E4EEF6}
+.card:nth-child(3n) .thumb{background:var(--blush)}
+.thumb img{width:100%;aspect-ratio:642/909;object-fit:cover;object-position:top;border-radius:10px 10px 0 0;box-shadow:0 10px 30px -10px #1E2A4455;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.card:hover .thumb img{transform:translateY(-6px)}
+.tag{position:absolute;left:10px;top:9px;background:var(--ink);color:var(--paper);font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px;z-index:1}
+.body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.body h3{font-size:1.06rem;line-height:1.15}
+.body h3 .acc{font-weight:600}
+.body p{font-size:.83rem;color:var(--muted);line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.foot .meta{font-size:.74rem;color:var(--muted);white-space:nowrap}
+.acts{display:flex;gap:6px}
+.ib{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid var(--line);color:var(--ink);transition:background .2s,color .2s,transform .2s}
+.ib:active{transform:scale(.92)}
+.ib.dl{background:var(--terra);border-color:var(--terra);color:#fff}
+.ib .ic{width:16px;height:16px}
+.soon{box-shadow:none;background:transparent;border:1.5px dashed #1E2A4433}
+.soon .thumb{display:flex;align-items:center;justify-content:center;background:transparent!important}
+.soon .ph{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:1.4rem;text-align:center}
+@media (min-width:760px){.body{padding:18px}.body h3{font-size:1.2rem}.body p{font-size:.9rem}}
+
+/* banda VIP */
+.band{margin-top:46px;background:var(--ink);color:var(--paper);border-radius:28px;padding:28px 22px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;text-decoration:none;isolation:isolate}
+.band::after{content:"";position:absolute;z-index:-1;width:220px;height:220px;border-radius:50%;border:1.5px solid #BFD7EA33;right:-70px;top:-80px}
+.band::before{content:"";position:absolute;z-index:-1;width:150px;height:150px;border-radius:50%;background:var(--terra);right:-50px;bottom:-70px}
+.band .eyebrow{color:var(--sky)}.band .eyebrow::before{background:var(--sky)}
+.band h2{font-size:clamp(1.8rem,7.5vw,2.4rem)}
+.band h2 .acc{color:var(--sky)}
+.band p{color:#FFFDF9BF;max-width:36ch}
+.band .btn{align-self:flex-start;background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.band .btn .c{background:var(--terra);color:#fff}
+footer{display:flex;flex-direction:column;align-items:center;gap:10px;padding:34px 0 0;color:var(--muted);font-size:.85rem}
 
 /* VIP */
-.vhero{position:relative;padding-top:4px}
-.vhero h1{font-size:clamp(3rem,15vw,5.2rem);text-transform:uppercase;margin-top:6px}
-.vhero h1 .it{color:var(--terra);text-transform:none;font-size:1.05em}
-.sub{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--ink);font-size:clamp(1.2rem,5.5vw,1.6rem);margin-top:10px;opacity:.85}
-.badge{position:absolute;right:0;top:-6px;width:82px;height:82px}
-.badge .core{position:absolute;inset:19px;border-radius:50%;background:var(--sky);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem;line-height:.9}
-.photo{position:relative;margin:22px auto 0;width:min(100%,420px);aspect-ratio:760/846;isolation:isolate}
-.photo .arch{position:absolute;z-index:-1;left:10%;right:8%;bottom:0;top:10%;background:var(--terra);border-radius:48% 52% 8% 8%/40% 42% 6% 6%;animation:archm 9s ease-in-out infinite alternate}
-.photo .arch2{position:absolute;z-index:-2;left:2%;right:0;bottom:6%;top:22%;background:var(--sky);border-radius:58% 42% 50% 50%/52% 60% 40% 48%;animation:morph 16s ease-in-out infinite alternate}
-@keyframes archm{to{border-radius:56% 44% 8% 8%/48% 36% 6% 6%}}
-.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom}
-.photo .p1{position:absolute;left:-4px;top:18%;width:64px;--rot:-10deg}
-.photo .p2{position:absolute;right:-6px;top:6%;width:30px}
-.photo .p3{position:absolute;right:2%;bottom:20%;width:84px;z-index:2}
-.photo .p3 .core{position:absolute;inset:20px;border-radius:50%;background:var(--paper);color:var(--terra);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-weight:700;font-size:.8rem;text-align:center;line-height:1}
-.sheet{position:relative;background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:26px 22px;display:flex;flex-direction:column;gap:14px;min-width:0;opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
-.sheet.in{opacity:1;transform:none}
-.sheet h2{font-size:clamp(1.7rem,7.5vw,2.3rem)}
-.sheet h2 .t{font-family:var(--serif);font-style:italic;font-weight:700;letter-spacing:-.01em}
-.sheet .corner{position:absolute;right:16px;top:-18px;width:44px}
-.lead{font-size:1.05rem;line-height:1.45;opacity:.85}
-ul,ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-li{padding-left:30px;position:relative}
-ul li::before{content:"";position:absolute;left:2px;top:.25em;width:18px;height:18px;background:var(--terra);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
-ol{counter-reset:n}ol li{counter-increment:n}
-ol li::before{content:counter(n);position:absolute;left:0;top:.1em;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:.74rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.perks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.perk{border-radius:22px;padding:16px;background:var(--bg);display:flex;flex-direction:column;gap:6px;min-width:0}
-.perk:nth-child(1){background:var(--blush)}.perk:nth-child(2){background:var(--sky)}.perk:nth-child(3){background:#FBE3D6}.perk:nth-child(4){background:var(--ink);color:var(--paper)}
-.perk .ico{width:30px;height:30px}
-@media (max-width:520px){.perks{grid-template-columns:1fr}}
-.word{display:inline-block;background:var(--terra);color:var(--paper);font-weight:800;padding:2px 10px;border-radius:999px;letter-spacing:.06em}
-.big{position:relative;display:flex;justify-content:center;align-items:center;gap:10px;background:var(--terra);color:var(--paper);font-weight:800;font-size:1.1rem;padding:17px 22px;border-radius:999px;text-decoration:none;box-shadow:0 16px 30px -14px #D9643A;text-align:center;transition:transform .2s}
-.big:active{transform:scale(.97)}
-.faq div{border-top:1px dashed #1E2A4433;padding-top:12px}
-.faq h3{margin:0 0 4px;font-size:1.05rem}
-footer{display:flex;justify-content:center;padding-top:6px}
-.pill{background:var(--ink);color:var(--paper);font-weight:800;padding:12px 24px;border-radius:999px;text-decoration:none}
+.vgrid{display:grid;gap:14px}
+.panel{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 20px;display:flex;flex-direction:column;gap:14px;scroll-margin-top:80px;opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1)}
+.panel.in{opacity:1;transform:none}
+.panel h2{font-size:clamp(1.6rem,7vw,2.1rem)}
+.list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column}
+.list li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);align-items:flex-start}
+.list li:first-child{border-top:0;padding-top:0}
+.list .chk{width:26px;height:26px;border-radius:8px;background:var(--blush);color:var(--terra);display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.list .chk .ic{width:14px;height:14px;stroke-width:2.6}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.perk{border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.perk .sq{width:38px;height:38px;border-radius:11px;background:var(--blush);color:var(--terra);display:flex;align-items:center;justify-content:center}
+.perk:nth-child(even) .sq{background:#E4EEF6;color:var(--ink)}
+.perk b{font-size:.95rem;line-height:1.2}
+.perk small{color:var(--muted);font-size:.82rem;line-height:1.4}
+@media (max-width:420px){.perks{grid-template-columns:1fr}}
+.steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;counter-reset:n}
+.steps li{display:flex;gap:14px;align-items:flex-start;counter-increment:n}
+.steps li::before{content:"0" counter(n);font-family:var(--serif);font-style:italic;color:var(--terra);font-size:1.3rem;line-height:1.1;min-width:30px}
+.word{display:inline-block;background:var(--ink);color:var(--paper);font-weight:700;padding:1px 10px;border-radius:999px;letter-spacing:.06em;font-size:.88rem}
+.big{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--terra);color:#fff;font-weight:600;font-size:1.02rem;padding:8px 8px 8px 22px;border-radius:999px;text-decoration:none;transition:transform .2s}
+.big .c{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--terra);display:flex;align-items:center;justify-content:center;flex:none}
+.big:active{transform:scale(.98)}
+.faq details{border-top:1px solid var(--line);padding:14px 0}
+.faq details:first-of-type{border-top:0;padding-top:0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{transition:transform .25s}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq details p{color:var(--muted);margin-top:8px}
 
 /* barra flotante */
-nav.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));z-index:5;width:min(calc(100% - 32px),420px);
-background:#1E2A44E6;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;gap:4px;padding:6px;border-radius:999px;box-shadow:0 18px 40px -16px #1E2A44}
-.tab{flex:1;font:inherit;font-weight:800;font-size:.95rem;color:var(--paper);background:transparent;border:0;border-radius:999px;padding:13px 10px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .35s,color .35s}
-.tab[aria-selected="true"]{background:var(--terra)}
-.tab svg{width:18px;height:18px}
+nav.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom));z-index:7;width:min(calc(100% - 32px),380px);
+background:#1E2A44F2;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;gap:4px;padding:5px;border-radius:999px;box-shadow:0 14px 34px -14px #1E2A44}
+.tab{flex:1;font:inherit;font-weight:600;font-size:.9rem;color:#FFFDF9B3;background:transparent;border:0;border-radius:999px;padding:12px 10px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .3s,color .3s}
+.tab[aria-selected="true"]{background:var(--paper);color:var(--ink)}
+.tab .ic{width:17px;height:17px}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
 
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.card,.sheet{opacity:1;transform:none}.squig path{stroke-dashoffset:0}}
+@media (min-width:860px){.hero{grid-template-columns:1.05fr .95fr;padding:46px 0 50px}.band{flex-direction:row;align-items:center;justify-content:space-between;padding:36px 40px}.vgrid{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.card,.panel{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<!-- stickers reutilizables -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <defs>
-  <symbol id="flower" viewBox="-50 -50 100 100"><g fill="#D9643A">
-   <ellipse rx="13" ry="30" cy="-18"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(60)"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(120)"/>
-   <ellipse rx="13" ry="30" cy="-18" transform="rotate(180)"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(240)"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(300)"/></g>
-   <circle r="11" fill="#F7D9CB"/></symbol>
-  <symbol id="flowerSky" viewBox="-50 -50 100 100"><g fill="#BFD7EA">
-   <ellipse rx="13" ry="30" cy="-18"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(60)"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(120)"/>
-   <ellipse rx="13" ry="30" cy="-18" transform="rotate(180)"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(240)"/><ellipse rx="13" ry="30" cy="-18" transform="rotate(300)"/></g>
-   <circle r="11" fill="#1E2A44"/></symbol>
-  <symbol id="spark" viewBox="-50 -50 100 100"><path d="M0-48C4-14 14-4 48 0 14 4 4 14 0 48-4 14-14 4-48 0-14-4-4-14 0-48Z" fill="#D9643A"/></symbol>
-  <symbol id="sparkInk" viewBox="-50 -50 100 100"><path d="M0-48C4-14 14-4 48 0 14 4 4 14 0 48-4 14-14 4-48 0-14-4-4-14 0-48Z" fill="#1E2A44"/></symbol>
-  <symbol id="burst" viewBox="-50 -50 100 100"><g stroke="#D9643A" stroke-width="4" stroke-linecap="round">
-   <path d="M0-20V-46"/><path d="M0-20V-46" transform="rotate(30)"/><path d="M0-20V-40" transform="rotate(60)"/><path d="M0-20V-46" transform="rotate(90)"/>
-   <path d="M0-20V-40" transform="rotate(120)"/><path d="M0-20V-46" transform="rotate(150)"/><path d="M0-20V-40" transform="rotate(180)"/><path d="M0-20V-46" transform="rotate(210)"/>
-   <path d="M0-20V-40" transform="rotate(240)"/><path d="M0-20V-46" transform="rotate(270)"/><path d="M0-20V-40" transform="rotate(300)"/><path d="M0-20V-46" transform="rotate(330)"/></g></symbol>
-  <symbol id="heart" viewBox="0 0 100 100"><path d="M50 88C20 66 6 50 6 32 6 18 17 8 30 8c9 0 16 5 20 12 4-7 11-12 20-12 13 0 24 10 24 24 0 18-14 34-44 56Z" fill="#D9643A"/></symbol>
- </defs>
-</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="50" fill="#1E2A44"/><text x="47" y="71" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-style="italic" font-weight="500" font-size="62" fill="#FFFDF9">m</text><path d="M76 18c.9 6.4 3.6 9.1 10 10-6.4.9-9.1 3.6-10 10-.9-6.4-3.6-9.1-10-10 6.4-.9 9.1-3.6 10-10Z" fill="#D9643A"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+ <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+ <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v13M6 11l6 6 6-6M5 21h14"/></symbol>
+ <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+ <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>
+ <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7Z"/></symbol>
+ <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="5" rx="1"/><path d="M5 13v8h14v-8M12 8v13M12 8S10.5 3 8 3.5 7 8 12 8Zm0 0s1.5-5 4-4.5S17 8 12 8Z"/></symbol>
+ <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+ <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+ <symbol id="i-steps" viewBox="0 0 24 24"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="18" cy="6" r="2"/></symbol>
+ <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+ <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.3"/></symbol>
+ <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 5 3.5-5 3.5Z"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+ <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+</defs></svg>
 
-<div class="blobs" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#" data-go="guias"><svg class="m"><use href="#logo"/></svg><span><b>Melany</b><small>IA en poco tiempo</small></span></a>
+  <a class="cta" href="#vip" data-go="vip">Lista VIP <svg class="ic"><use href="#i-up"/></svg></a>
+</div></header>
 
-<main class="wrap view" id="v-guias">
-<div class="top">
-  <div class="brand">Melany<span>IA en poco tiempo</span></div>
-  <a class="igbtn" href="https://www.instagram.com/melanyriveroh/" target="_blank" rel="noopener">@melanyriveroh</a>
+<main class="view" id="v-guias">
+<div class="wrap">
+  <section class="hero">
+    <div class="copy">
+      <span class="kick">Gratis · En PDF · Con IA</span>
+      <h1>Guías para crear <span class="acc">con poco tiempo</span></h1>
+      <p class="lede">Aprende a crear contenido con IA desde casa, con poca inversión y sin ser experto. Léelas aquí o descárgalas.</p>
+      <div class="row">
+        <a class="btn solid" href="#biblioteca">Ver las guías <span class="c"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a class="btn line" href="#vip" data-go="vip">Lista VIP</a>
+      </div>
+      <div class="trust"><span class="stk"><img src="guias/plan.jpg" alt=""><img src="guias/efectos.jpg" alt=""><img src="guias/canva.jpg" alt=""></span><span><b id="count">10 guías</b> listas para ti<br>y vienen más</span></div>
+    </div>
+    <div class="visual">
+      <div class="ring"></div><div class="arch"></div>
+      <img class="me" src="melany.png" alt="Melany sonriendo con su laptop">
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="#1E2A44"/><text font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="12" letter-spacing="3" fill="#FFFDF9"><textPath href="#circ">GUÍAS GRATIS • CON IA • GUÍAS GRATIS • CON IA •</textPath></text></svg>
+        <div class="core"><svg class="ic"><use href="#i-up"/></svg></div>
+      </div>
+      <span class="label l1"><span class="dot"></span>Contenido con IA</span>
+      <span class="label dark l2"><span class="dot"></span>Mamá 24/7</span>
+    </div>
+  </section>
 </div>
 
-<header class="hero">
-  <div class="shape"></div><div class="shape s2"></div>
-  <div class="stamp" aria-hidden="true">
-    <svg class="st spin" viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
-    <circle cx="60" cy="60" r="58" fill="#1E2A44"/><text font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12.5" letter-spacing="2.6" fill="#F4EFE6"><textPath href="#circ">GUÍAS GRATIS ✦ CON IA ✦ GUÍAS GRATIS ✦ CON IA ✦</textPath></text></svg>
-    <div class="core"><svg class="st wob" width="30" height="30"><use href="#spark"/></svg></div>
+<div class="marquee" aria-hidden="true"><div class="tr" id="mq"></div></div>
+
+<div class="wrap">
+  <div class="feats">
+    <div class="feat"><span class="sq"><svg class="ic"><use href="#i-gift"/></svg></span><span><b>100 % gratis</b><small>Sin correo ni registro</small></span></div>
+    <div class="feat"><span class="sq"><svg class="ic"><use href="#i-file"/></svg></span><span><b>En PDF</b><small>Léelas o descárgalas</small></span></div>
+    <div class="feat"><span class="sq"><svg class="ic"><use href="#i-steps"/></svg></span><span><b>Paso a paso</b><small>Prompts listos para copiar</small></span></div>
+    <div class="feat"><span class="sq"><svg class="ic"><use href="#i-clock"/></svg></span><span><b>Poco tiempo</b><small>Pensadas para gente ocupada</small></span></div>
   </div>
-  <svg class="st spark1 twinkle" viewBox="0 0 26 26" aria-hidden="true"><use href="#sparkInk"/></svg>
-  <svg class="st spark2 twinkle" viewBox="0 0 18 18" aria-hidden="true"><use href="#spark"/></svg>
-  <svg class="st flower float spin-slow" viewBox="0 0 62 62" aria-hidden="true"><use href="#flower"/></svg>
-  <div class="kick">Biblioteca gratis ✦</div>
-  <h1>Guías<br>de <span class="it">Melany<svg class="squig" viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12C40 2 60 16 96 8s60 10 96 2 60 8 104 0" fill="none" stroke="#1E2A44" stroke-width="4" stroke-linecap="round"/></svg></span></h1>
-  <p class="intro">Para crear contenido con IA cuando tienes poco tiempo. Léelas aquí o descárgalas en PDF.</p>
-</header>
 
-<div class="chipsbox">
-  <div class="lbl"><svg class="st twinkle" width="16" height="16"><use href="#spark"/></svg>Busca la palabra que comentaste</div>
-  <div class="search" id="chips" aria-label="Ir a una guía por su palabra"></div>
+  <section class="sec" id="biblioteca">
+    <span class="eyebrow">Biblioteca</span>
+    <h2>Todas mis <span class="acc">guías</span></h2>
+    <p class="sub">Busca la palabra que comentaste en Instagram.</p>
+    <div class="search" id="chips" aria-label="Ir a una guía por su palabra"></div>
+    <div class="grid" id="list"></div>
+  </section>
+
+  <a class="band" href="#vip" data-go="vip">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span class="eyebrow">Lista VIP · Próximamente</span>
+      <h2>Kit contenido <span class="acc">con IA</span></h2>
+      <p>Todo mi sistema en un solo lugar. Entra primero, con precio de lanzamiento y un regalo.</p>
+    </div>
+    <span class="btn">Quiero entrar <span class="c"><svg class="ic"><use href="#i-arrow"/></svg></span></span>
+  </a>
+
+  <footer>
+    <a class="cta" href="https://www.instagram.com/melanyriveroh/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg>@melanyriveroh</a>
+    <span>Hecho con IA, desde casa.</span>
+  </footer>
 </div>
-
-<a class="vipbox" href="#vip" data-go="vip"><span class="vk">LISTA VIP · PRÓXIMAMENTE</span><b>Kit contenido <span class="it">con IA</span></b><span>Todo mi sistema en un solo lugar. Entra primero, con precio de lanzamiento y un regalo.</span><span class="vb">Quiero entrar →</span>
-  <svg class="st vst float" viewBox="0 0 58 58" aria-hidden="true" style="--rot:8deg"><use href="#flowerSky"/></svg></a>
-
-<section class="list" id="list"></section>
-<footer><a class="pill" href="https://www.instagram.com/melanyriveroh/" target="_blank" rel="noopener">Sígueme en @melanyriveroh</a></footer>
 </main>
 
-<main class="wrap view" id="v-vip" hidden>
-<div class="top">
-  <div class="brand">Melany<span>IA en poco tiempo</span></div>
-  <a class="igbtn" href="https://www.instagram.com/melanyriveroh/" target="_blank" rel="noopener">@melanyriveroh</a>
+<main class="view" id="v-vip" hidden>
+<div class="wrap">
+  <section class="hero">
+    <div class="copy">
+      <span class="kick">Lista VIP · Muy pronto</span>
+      <h1>Kit contenido <span class="acc">con IA</span></h1>
+      <p class="lede">Todo mi sistema para crear con poco tiempo, en un solo lugar. Entra a la lista y te enteras primero.</p>
+      <div class="row">
+        <a class="btn solid" href="https://ig.me/m/melanyriveroh" target="_blank" rel="noopener">Escribir VIP <span class="c"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a class="btn line" href="#como" data-jump="como">Cómo entrar</a>
+      </div>
+    </div>
+    <div class="visual">
+      <div class="ring"></div><div class="arch" style="background:var(--sky)"></div>
+      <img class="me" src="melany.png" alt="Melany sonriendo con su laptop">
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><defs><path id="circ2" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="#D9643A"/><text font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="12" letter-spacing="3" fill="#FFFDF9"><textPath href="#circ2">MUY PRONTO • LISTA VIP • MUY PRONTO • VIP •</textPath></text></svg>
+        <div class="core" style="background:var(--paper);color:var(--terra);font-weight:800;font-size:.95rem">VIP</div>
+      </div>
+      <span class="label l1"><span class="dot"></span>Desde casa</span>
+      <span class="label dark l2"><span class="dot"></span>Poca inversión</span>
+    </div>
+  </section>
 </div>
-<header class="vhero">
-  <div class="kick">Lista VIP ✦</div>
-  <h1>Kit<br>contenido<br><span class="it">con IA</span></h1>
-  <div class="sub">para crear con poco tiempo</div>
-  <div class="badge" aria-hidden="true">
-    <svg class="st spin" viewBox="0 0 120 120" style="width:100%;height:100%"><defs><path id="circ2" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
-    <circle cx="60" cy="60" r="58" fill="#D9643A"/><text font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="13" letter-spacing="3" fill="#FFFBF4"><textPath href="#circ2">MUY PRONTO ✦ MUY PRONTO ✦ MUY PRONTO ✦</textPath></text></svg>
-    <div class="core">VIP</div>
-  </div>
-  <div class="photo">
-    <div class="arch2"></div><div class="arch"></div>
-    <img src="melany.png" alt="Melany sonriendo con su laptop">
-    <svg class="st p1 float" viewBox="0 0 64 64" aria-hidden="true"><use href="#flower"/></svg>
-    <svg class="st p2 twinkle" viewBox="0 0 30 30" aria-hidden="true"><use href="#sparkInk"/></svg>
-    <div class="p3" aria-hidden="true"><svg class="st spin" viewBox="0 0 100 100" style="width:100%;height:100%"><use href="#burst"/></svg><div class="core">desde<br>casa</div></div>
-  </div>
-</header>
-<section class="sheet">
-  <svg class="st corner wob" viewBox="0 0 44 44" aria-hidden="true"><use href="#spark"/></svg>
-  <h2>Todo mi sistema, <span class="t">en un solo lugar</span></h2>
-  <p class="lead">Las guías gratis te enseñan una parte. El Kit trae el paso a paso completo, con las herramientas listas para usar.</p>
-  <ul>
-    <li><b>Los 7 agentes de Claude</b>, con instrucciones probadas y tu archivo de marca para rellenar.</li>
-    <li><b>Plantillas de Canva editables:</b> portadas, carruseles y calendario.</li>
-    <li><b>Mi sistema de un mes de contenido en 1 hora</b>, paso a paso.</li>
-    <li><b>Videos cortos grabados de mi pantalla</b>, para que veas cómo lo hago yo.</li>
-  </ul>
-</section>
-<section class="sheet">
-  <svg class="st corner float" viewBox="0 0 44 44" aria-hidden="true"><use href="#flowerSky"/></svg>
-  <h2>Por qué entrar <span class="t">a la lista VIP</span></h2>
-  <div class="perks">
-    <div class="perk"><svg class="ico"><use href="#spark"/></svg><b>Te enteras primero</b><p>Las VIP saben antes que nadie cuándo sale.</p></div>
-    <div class="perk"><svg class="ico"><use href="#flower"/></svg><b>Precio de lanzamiento</b><p>Un precio especial solo para la lista.</p></div>
-    <div class="perk"><svg class="ico" viewBox="0 0 100 100"><use href="#heart"/></svg><b>Un regalo</b><p>Mi pack de prompts para planificar tu mes.</p></div>
-    <div class="perk"><svg class="ico"><use href="#flowerSky"/></svg><b>Historias VIP</b><p>Tips y detrás de cámaras que no publico en el feed.</p></div>
-  </div>
-</section>
-<section class="sheet">
-  <svg class="st corner twinkle" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkInk"/></svg>
-  <h2>Entra en <span class="t">10 segundos</span></h2>
-  <p class="lead">Sin correo y sin formularios: solo escríbeme una palabra.</p>
-  <ol>
-    <li>Escríbeme <span class="word">VIP</span> por mensaje en Instagram.</li>
-    <li>Te agrego a mi lista de Mejores amigos (verás la estrellita verde en mis historias).</li>
-    <li>Ahí te aviso primero del Kit y te mando tu regalo.</li>
-  </ol>
-  <a class="big" href="https://ig.me/m/melanyriveroh" target="_blank" rel="noopener">Escribir VIP por Instagram →</a>
-</section>
-<section class="sheet faq">
-  <h2>Preguntas <span class="t">frecuentes</span></h2>
-  <div><h3>¿Cuánto cuesta?</h3><p>El precio de lanzamiento lo anuncio primero en la lista VIP.</p></div>
-  <div><h3>¿Necesito experiencia?</h3><p>No. Está pensado para quien empieza y tiene poco tiempo.</p></div>
-  <div><h3>¿Necesito pagar Claude?</h3><p>No. Funciona con el plan gratis; te explico cómo organizar los agentes en 5 proyectos.</p></div>
-  <div><h3>¿Incluye asesoría personalizada?</h3><p>No. Es un kit para que avances a tu ritmo, con todo grabado y listo para usar.</p></div>
-</section>
+<div class="marquee" aria-hidden="true"><div class="tr" id="mq2"></div></div>
+<div class="wrap">
+  <section class="sec">
+    <div class="vgrid">
+      <div class="panel">
+        <span class="eyebrow">Qué trae</span>
+        <h2>Todo mi sistema, <span class="acc">en un solo lugar</span></h2>
+        <p class="sub">Las guías gratis te enseñan una parte. El Kit trae el paso a paso completo, con las herramientas listas para usar.</p>
+        <ul class="list">
+          <li><span class="chk"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Los 7 agentes de Claude</b>, con instrucciones probadas y tu archivo de marca para rellenar.</span></li>
+          <li><span class="chk"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Plantillas de Canva editables:</b> portadas, carruseles y calendario.</span></li>
+          <li><span class="chk"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Mi sistema de un mes de contenido en 1 hora</b>, paso a paso.</span></li>
+          <li><span class="chk"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Videos cortos grabados de mi pantalla</b>, para que veas cómo lo hago yo.</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">Ventajas</span>
+        <h2>Por qué entrar <span class="acc">a la lista VIP</span></h2>
+        <div class="perks">
+          <div class="perk"><span class="sq"><svg class="ic"><use href="#i-bell"/></svg></span><b>Te enteras primero</b><small>Las VIP saben antes que nadie cuándo sale.</small></div>
+          <div class="perk"><span class="sq"><svg class="ic"><use href="#i-tag"/></svg></span><b>Precio de lanzamiento</b><small>Un precio especial solo para la lista.</small></div>
+          <div class="perk"><span class="sq"><svg class="ic"><use href="#i-gift"/></svg></span><b>Un regalo</b><small>Mi pack de prompts para planificar tu mes.</small></div>
+          <div class="perk"><span class="sq"><svg class="ic"><use href="#i-play"/></svg></span><b>Historias VIP</b><small>Tips y detrás de cámaras que no publico en el feed.</small></div>
+        </div>
+      </div>
+      <div class="panel" id="como">
+        <span class="eyebrow">Cómo entrar</span>
+        <h2>Entra en <span class="acc">10 segundos</span></h2>
+        <p class="sub">Sin correo y sin formularios: solo escríbeme una palabra.</p>
+        <ol class="steps">
+          <li><span>Escríbeme <span class="word">VIP</span> por mensaje en Instagram.</span></li>
+          <li><span>Te agrego a mi lista de Mejores amigos (verás la estrellita verde en mis historias).</span></li>
+          <li><span>Ahí te aviso primero del Kit y te mando tu regalo.</span></li>
+        </ol>
+        <a class="big" href="https://ig.me/m/melanyriveroh" target="_blank" rel="noopener">Escribir VIP por Instagram <span class="c"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+      </div>
+      <div class="panel faq">
+        <span class="eyebrow">Dudas</span>
+        <h2>Preguntas <span class="acc">frecuentes</span></h2>
+        <div>
+          <details open><summary>¿Cuánto cuesta?<svg class="ic"><use href="#i-plus"/></svg></summary><p>El precio de lanzamiento lo anuncio primero en la lista VIP.</p></details>
+          <details><summary>¿Necesito experiencia?<svg class="ic"><use href="#i-plus"/></svg></summary><p>No. Está pensado para quien empieza y tiene poco tiempo.</p></details>
+          <details><summary>¿Necesito pagar Claude?<svg class="ic"><use href="#i-plus"/></svg></summary><p>No. Funciona con el plan gratis; te explico cómo organizar los agentes en 5 proyectos.</p></details>
+          <details><summary>¿Incluye asesoría personalizada?<svg class="ic"><use href="#i-plus"/></svg></summary><p>No. Es un kit para que avances a tu ritmo, con todo grabado y listo para usar.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <a class="cta" href="https://www.instagram.com/melanyriveroh/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg>@melanyriveroh</a>
+    <span>Hecho con IA, desde casa.</span>
+  </footer>
+</div>
 </main>
 
 <nav class="tabs" role="tablist">
-  <button class="tab" role="tab" data-go="guias" aria-selected="true"><svg><use href="#flowerSky"/></svg>Guías gratis</button>
-  <button class="tab" role="tab" data-go="vip" aria-selected="false"><svg viewBox="-50 -50 100 100"><path d="M0-48C4-14 14-4 48 0 14 4 4 14 0 48-4 14-14 4-48 0-14-4-4-14 0-48Z" fill="#FFFBF4"/></svg>Lista VIP</button>
+  <button class="tab" role="tab" data-go="guias" aria-selected="true"><svg class="ic"><use href="#i-book"/></svg>Guías gratis</button>
+  <button class="tab" role="tab" data-go="vip" aria-selected="false"><svg class="ic"><use href="#i-star"/></svg>Lista VIP</button>
 </nav>
 
 <script>
 // Para agregar una guía: sube su PDF y su portada (.jpg) a la carpeta guias/ y suma un objeto aquí.
 const GUIAS=[
- {slug:"anima-tus-carruseles",kw:"ANIMA",title:'Anima tus <span class="t">carruseles</span>',desc:"4 estilos (cinética, interfaz, sketch y collage) para que tus carruseles se muevan sin animar nada tú.",meta:"11 páginas · PDF"},
- {slug:"5-formatos",kw:"FORMATOS",title:'5 formatos con <span class="t">poco tiempo</span>',desc:"Antes vs. después, pantalla + voz, B-roll + texto, yapping y más: cómo grabar y editar cada uno.",meta:"9 páginas · PDF"},
- {slug:"claude-me-edita-los-reels",kw:"CLAUDE",title:'Claude me edita <span class="t">los reels</span>',desc:"5 pasos para pasarle tus clips a Claude y recibir el reel editado en MP4, con tus colores y tu letra.",meta:"11 páginas · PDF"},
- {slug:"plan",kw:"PLAN",title:'Un mes de contenido <span class="t">en 1 hora</span>',desc:"4 prompts para que Claude te dé ideas, guiones y calendario del mes. Tú solo grabas voces y clips.",meta:"9 páginas · PDF"},
- {slug:"canva",kw:"CANVA",title:'Claude <span class="t">+ Canva</span>',desc:"Conecta Claude con tu Canva y pídele portadas, carruseles y versiones con tus colores.",meta:"9 páginas · PDF"},
- {slug:"glosario",kw:"GLOSARIO",title:'Glosario de <span class="t">redes</span>',desc:"20 palabras de redes explicadas con ejemplo: para crear, para medir y para planear.",meta:"7 páginas · PDF"},
- {slug:"agentes",kw:"AGENTES",title:'7 agentes de <span class="t">Claude</span>',desc:"7 Proyectos de Claude con instrucciones listas para pegar: ideas, guiones, captions, comentarios, calendario, carruseles y métricas.",meta:"11 páginas · PDF"},
- {slug:"efectos",kw:"EFECTOS",title:'9 efectos con <span class="t">una toma</span>',desc:"Un prompt para cada efecto (interfaz, carrusel, órbita, texto, marco, celular, sticker, fondo y neón) y qué decirle si algo sale mal.",meta:"8 páginas · PDF"},
- {slug:"camara",kw:"CAMARA",title:'1 cámara, <span class="t">6 planos</span>',desc:"El prompt para que Claude saque plano abierto, medio, primer plano, detalle, acercamiento y otro ángulo de una sola toma.",meta:"7 páginas · PDF"},
- {slug:"conecta",kw:"CONECTA",title:'Conecta Claude con tu <span class="t">Instagram</span>',desc:"Conecta Claude con Instagram a través de Metricool y pregúntale por tu mejor reel, tu mejor hora y qué contenido repetir.",meta:"5 páginas · PDF"}
+ {slug:"anima-tus-carruseles",kw:"ANIMA",title:'Anima tus <span class="acc">carruseles</span>',desc:"4 estilos (cinética, interfaz, sketch y collage) para que tus carruseles se muevan sin animar nada tú.",meta:"11 págs."},
+ {slug:"5-formatos",kw:"FORMATOS",title:'5 formatos con <span class="acc">poco tiempo</span>',desc:"Antes vs. después, pantalla + voz, B-roll + texto, yapping y más: cómo grabar y editar cada uno.",meta:"9 págs."},
+ {slug:"claude-me-edita-los-reels",kw:"CLAUDE",title:'Claude me edita <span class="acc">los reels</span>',desc:"5 pasos para pasarle tus clips a Claude y recibir el reel editado en MP4, con tus colores y tu letra.",meta:"11 págs."},
+ {slug:"plan",kw:"PLAN",title:'Un mes de contenido <span class="acc">en 1 hora</span>',desc:"4 prompts para que Claude te dé ideas, guiones y calendario del mes. Tú solo grabas voces y clips.",meta:"9 págs."},
+ {slug:"canva",kw:"CANVA",title:'Claude <span class="acc">+ Canva</span>',desc:"Conecta Claude con tu Canva y pídele portadas, carruseles y versiones con tus colores.",meta:"9 págs."},
+ {slug:"glosario",kw:"GLOSARIO",title:'Glosario de <span class="acc">redes</span>',desc:"20 palabras de redes explicadas con ejemplo: para crear, para medir y para planear.",meta:"7 págs."},
+ {slug:"agentes",kw:"AGENTES",title:'7 agentes de <span class="acc">Claude</span>',desc:"7 Proyectos de Claude con instrucciones listas para pegar: ideas, guiones, captions, comentarios, calendario, carruseles y métricas.",meta:"11 págs."},
+ {slug:"efectos",kw:"EFECTOS",title:'9 efectos con <span class="acc">una toma</span>',desc:"Un prompt para cada efecto (interfaz, carrusel, órbita, texto, marco, celular, sticker, fondo y neón) y qué decirle si algo sale mal.",meta:"8 págs."},
+ {slug:"camara",kw:"CAMARA",title:'1 cámara, <span class="acc">6 planos</span>',desc:"El prompt para que Claude saque plano abierto, medio, primer plano, detalle, acercamiento y otro ángulo de una sola toma.",meta:"7 págs."},
+ {slug:"conecta",kw:"CONECTA",title:'Conecta Claude con tu <span class="acc">Instagram</span>',desc:"Conecta Claude con Instagram a través de Metricool y pregúntale por tu mejor reel, tu mejor hora y qué contenido repetir.",meta:"5 págs."}
 ];
-const MINI=['#spark','#flower','#flowerSky','#sparkInk'];
+document.getElementById('count').textContent=GUIAS.length+' guías';
+const words=['Reels','Carruseles','Canva','Claude','Planificación','Edición con IA','Instagram','Prompts'];
+const mqHTML='<span>'+words.map(w=>w+' <i>✦</i>').join(' ')+'</span>';
+['mq','mq2'].forEach(id=>document.getElementById(id).innerHTML=mqHTML+mqHTML);
 document.getElementById('chips').innerHTML=GUIAS.map(g=>`<a class="chip" href="#${g.kw.toLowerCase()}">${g.kw}</a>`).join('');
-document.getElementById('list').innerHTML=GUIAS.map((g,i)=>`
+document.getElementById('list').innerHTML=GUIAS.map(g=>`
  <article class="card" id="${g.kw.toLowerCase()}">
-  <div class="covwrap"><img class="cover" src="guias/${g.slug}.jpg" alt="Portada de la guía ${g.kw}" loading="lazy">
-   <svg class="st mini ${i%2?'twinkle':'wob'}" aria-hidden="true"><use href="${MINI[i%4]}"/></svg></div>
-  <div>
-   <span class="tag">Palabra: ${g.kw}</span>
-   <h2>${g.title}</h2>
+  <div class="thumb"><span class="tag">${g.kw}</span><img src="guias/${g.slug}.jpg" alt="Portada de la guía ${g.kw}" loading="lazy"></div>
+  <div class="body">
+   <h3>${g.title}</h3>
    <p>${g.desc}</p>
-   <span class="meta">${g.meta}</span>
-   <div class="btns">
-    <a class="btn read" href="guias/${g.slug}.pdf" target="_blank" rel="noopener">Leer</a>
-    <a class="btn dl" href="guias/${g.slug}.pdf" download="Guia ${g.kw} - Melany.pdf">Descargar <span class="ar">↓</span></a>
-   </div>
+   <div class="foot"><span class="meta">PDF · ${g.meta}</span>
+    <span class="acts">
+     <a class="ib" href="guias/${g.slug}.pdf" target="_blank" rel="noopener" aria-label="Leer ${g.kw}"><svg class="ic"><use href="#i-eye"/></svg></a>
+     <a class="ib dl" href="guias/${g.slug}.pdf" download="Guia ${g.kw} - Melany.pdf" aria-label="Descargar ${g.kw}"><svg class="ic"><use href="#i-down"/></svg></a>
+    </span></div>
   </div>
  </article>`).join('')+`
- <article class="card soon"><div class="ph">Muy<br>pronto<svg class="st mini twinkle" style="position:absolute;width:30px;right:-10px;top:-10px" aria-hidden="true"><use href="#spark"/></svg></div><div><h2>Próxima <span class="t">guía</span></h2><p>Estoy preparando la siguiente. Vuelve pronto a este mismo link.</p></div></article>`;
+ <article class="card soon"><div class="thumb"><span class="ph">Muy<br>pronto</span></div><div class="body"><h3>Próxima <span class="acc">guía</span></h3><p>Estoy preparando la siguiente. Vuelve pronto a este mismo link.</p></div></article>`;
 
-// Aparecen suavecito al bajar
-const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12}):null;
-document.querySelectorAll('.card,.sheet').forEach(el=>io?io.observe(el):el.classList.add('in'));
+// Aparecen suavemente al bajar
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):null;
+document.querySelectorAll('.card,.panel').forEach(el=>io?io.observe(el):el.classList.add('in'));
 
 const views={guias:document.getElementById('v-guias'),vip:document.getElementById('v-vip')};
 function show(name,scroll){
@@ -350,13 +416,16 @@ function show(name,scroll){
 document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{
  e.preventDefault();const n=el.dataset.go;show(n);history.replaceState(null,'',n==='vip'?'#vip':location.pathname);
 }));
+document.querySelectorAll('a[href="#biblioteca"],[data-jump]').forEach(el=>el.addEventListener('click',e=>{
+ e.preventDefault();document.getElementById(el.dataset.jump||'biblioteca').scrollIntoView({behavior:'smooth'});
+}));
 // Abre directo la guía o la lista VIP según el link (#efectos, #plan, #vip…)
 function route(){
  const h=decodeURIComponent(location.hash.slice(1)).toLowerCase();
  if(h==='vip'){show('vip');return}
  show('guias',false);
  const el=h&&document.getElementById(h);
- if(el){document.querySelectorAll('.card.hl').forEach(c=>c.classList.remove('hl'));el.classList.add('hl','in');setTimeout(()=>el.scrollIntoView({block:'start'}),60)}
+ if(el&&el.classList.contains('card')){document.querySelectorAll('.card.hl').forEach(c=>c.classList.remove('hl'));el.classList.add('hl','in');setTimeout(()=>el.scrollIntoView({block:'start'}),60)}
 }
 window.addEventListener('hashchange',route);route();
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
